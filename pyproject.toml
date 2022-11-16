@@ -1,0 +1,35 @@
+[build-system]
+requires = [
+    "hatchling >=1.11.0,<2",
+    "hatch-vcs >=0.2.0",
+]
+build-backend = "hatchling.build"
+
+[project]
+name = "uninstaller"
+
+description = "counterpart to https://github.com/pypa/installer"
+
+authors = [
+    { name = "Greyson Christoforo", email = "grey@christoforo.net" },
+]
+
+readme = "README.md"
+
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Development Status :: 2 - Pre-Alpha",
+]
+
+requires-python = ">=3.10"
+
+dynamic = [
+    "version",
+]
+
+[project.urls]
+"GitHub" = "https://github.com/greyltc/uninstaller"
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
