@@ -10,6 +10,25 @@ This project reads [The RECORD file](https://packaging.python.org/en/latest/spec
 # Usage
 Tested with python 3.10 on Linux. It's written to be platform agnostic.
 ```
-EMPTY
+$ python -m uninstaller --help
+usage: python -m uninstaller [-h] [--root path] [--base path] [--scheme scheme] [--not-pure-python] [--ignore-checksums] [--ignore-sizes] [--verbose] package [package ...]
+
+uninstall python packages
+
+positional arguments:
+  package               name of the package to uninstall
+
+options:
+  -h, --help            show this help message and exit
+  --root path, -r path  override package search root
+  --base path, -b path  override base path (aka prefix)
+  --scheme scheme, -s scheme
+                        override the default installation scheme
+  --not-pure-python, -n
+                        use this if the package to be uninstalled is not pure python
+  --ignore-checksums, -i
+                        use this to skip checksum verification ☠️DANGEROUS☠️
+  --ignore-sizes, -z    use this to skip file size verification ☠️DANGEROUS☠️
+  --verbose, -v         print every file that's removed to stdout
 ```
 `--ignore-sizes` and `--ignore-checksums` are particularly dangerous arguments to use because they bypass validation of files you're about to delete. These switches when paired with a maliciously crafted RECORD file can delete anything your user has the permissions to delete (although they don't completely protect you from a maliciously crafted RECORD file. If you avoid using these, you're pretty safe from a crafted RECORD file because an evil genius would need to know the checksum, size and location of the file(s) they want this tool to delete).
