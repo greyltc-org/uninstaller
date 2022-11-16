@@ -8,7 +8,7 @@ from typing import Optional, Sequence
 
 def _get_main_parser() -> argparse.ArgumentParser:
     """Construct the main parser."""
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description="uninstall python packages")
     parser.add_argument(
         nargs="+",
         metavar="package",
