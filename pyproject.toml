@@ -30,6 +30,19 @@ dynamic = [
 [project.urls]
 "GitHub" = "https://github.com/greyltc/uninstaller"
 
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build]
+ignore-vcs = true
+include = [
+  "src/uninstaller/*.py",
+]
+
+[tool.hatch.build.targets.wheel]
+only-include = ["src"]
+sources = ["src"]
+
 [tool.black]
 line-length = 88
 target-version = ['py310']

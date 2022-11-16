@@ -28,7 +28,7 @@ def _get_main_parser() -> argparse.ArgumentParser:
         "-b",
         metavar="path",
         type=str,
-        help="overrirde base path (aka prefix)",
+        help="override base path (aka prefix)",
     )
     parser.add_argument(
         "--scheme",
@@ -49,14 +49,14 @@ def _get_main_parser() -> argparse.ArgumentParser:
         "-i",
         action="store_true",
         dest="nocsum",
-        help="use this to skip checksum verification",
+        help="use this to skip checksum verification ☠️DANGEROUS☠️",
     )
     parser.add_argument(
         "--ignore-sizes",
         "-z",
         action="store_true",
         dest="nosize",
-        help="use this to skip file size verification",
+        help="use this to skip file size verification ☠️DANGEROUS☠️",
     )
     parser.add_argument(
         "--verbose",
