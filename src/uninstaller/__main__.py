@@ -42,7 +42,7 @@ def _get_main_parser() -> argparse.ArgumentParser:
         "-n",
         action="store_true",
         dest="unpure",
-        help="use this if the package to be uninstalled is not pure python",
+        help="you might need to use this if 'Root-is-Purelib' metadata parameter of the package you want to uninstall is false",
     )
     parser.add_argument(
         "--ignore-checksums",
