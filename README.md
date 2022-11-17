@@ -8,7 +8,7 @@ This project uses a bunch of lightly tested logic to decide how to call [`os.unl
 This project reads [The RECORD file](https://packaging.python.org/en/latest/specifications/recording-installed-packages/#the-record-file) to figure out how to remove a package. The RECORD file does not contain info on which folders were created during installation (only files), so we can't, with 100% certianty, know which folders should be removed when we try to uninstall a package. After removing all the files listed in RECORD, this project will remove all **empty** folders that were in the chain upwards of where each file in RECORD was. That means it's possible that an empty folder not created at install time will be removed by this tool.
 
 # Scope
-The design intent here is that this project just undoes what https://github.com/pypa/installer does. This uninstaller can't uninstall all packages. A package to be uninstalled must at least have a RECORD file in its .dist-info directory for this to have a chance to work. The uninstall done by this tool can only be as complete and correct as that RECORD file allows for.
+The design intent here is that this project just undoes what https://github.com/pypa/installer (or a similar tool) does. This uninstaller can't uninstall all packages. A package to be uninstalled must at least have a RECORD file in its .dist-info directory for this to have a chance to work. The uninstall done by this tool can only be as complete and correct as that RECORD file allows for.
 
 # Usage
 Tested with python 3.10 on Linux. It's written to be platform agnostic.
