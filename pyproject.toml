@@ -8,7 +8,7 @@ build-backend = "hatchling.build"
 [project]
 name = "uninstaller"
 
-description = "counterpart to https://github.com/pypa/installer"
+description = "A library for uninstalling packages"
 
 authors = [
     { name = "Greyson Christoforo", email = "grey@christoforo.net" },
