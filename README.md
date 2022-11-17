@@ -1,5 +1,5 @@
 # uninstaller
-A library for uninstalling packages. Inverse counterpart of https://github.com/pypa/installer 
+A library for uninstalling python packages. Inverse counterpart of https://github.com/pypa/installer 
 
 # ⚠General Warning⚠
 This project uses a bunch of lightly tested logic to decide how to call [`os.unlink()`](https://docs.python.org/3/library/os.html#os.unlink) and [`os.rmdir()`](https://docs.python.org/3/library/os.html#os.rmdir) which make changes to your file system that probably can't be undone. I personally think it's safe (if you're okay with the empty folder warning below) and effective, but it comes with no warranty it won't destroy some data you wish it didn't. That said, I wouldn't run it with root permissions at this point.
