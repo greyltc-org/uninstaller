@@ -11,7 +11,6 @@ This project reads [The RECORD file](https://packaging.python.org/en/latest/spec
 The design intent here is that this project just undoes what https://github.com/pypa/installer (or a similar tool) does. This uninstaller can't uninstall all packages. A package to be uninstalled must at least have a RECORD file in its .dist-info directory for this to have a chance to work. The uninstall done by this tool can only be as complete and correct as that RECORD file allows for.
 
 # Usage
-Tested with python 3.10 on Linux. It's written to be platform agnostic.
 ```
 $ python -m uninstaller --help
 usage: python -m uninstaller [-h] [--root path] [--base path] [--scheme scheme] [--not-pure-python] [--ignore-checksums] [--ignore-sizes] [--verbose] package [package ...]
@@ -28,7 +27,7 @@ options:
   --scheme scheme, -s scheme
                         override the default installation scheme
   --not-pure-python, -n
-                        use this if the package to be uninstalled is not pure python
+                        you might need to use this if 'Root-is-Purelib' metadata parameter of the package you want to uninstall is false
   --ignore-checksums, -i
                         use this to skip checksum verification ☠️DANGEROUS☠️
   --ignore-sizes, -z    use this to skip file size verification ☠️DANGEROUS☠️
