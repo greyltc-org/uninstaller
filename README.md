@@ -1,7 +1,4 @@
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/greyltc-org/uninstaller?label=github) ![GitHub all releases](https://img.shields.io/github/downloads/greyltc-org/uninstaller/total)&emsp;&emsp;&emsp;![PyPI](https://img.shields.io/pypi/v/uninstaller) ![PyPI - Downloads](https://img.shields.io/pypi/dm/uninstaller)
-
-
-
 # uninstaller
 A library for uninstalling python packages. Inverse counterpart of https://github.com/pypa/installer 
 
