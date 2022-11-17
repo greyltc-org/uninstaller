@@ -1,3 +1,6 @@
+<p align="left">
+<a href="https://pypi.org/project/uninstaller/"><img alt="PyPI" src="https://img.shields.io/pypi/v/uninstaller"></a>
+</p>
 # uninstaller
 A library for uninstalling python packages. Inverse counterpart of https://github.com/pypa/installer 
 
