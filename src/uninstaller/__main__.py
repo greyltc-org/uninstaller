@@ -62,7 +62,7 @@ def _get_main_parser() -> argparse.ArgumentParser:
         "--verbose",
         "-v",
         action="store_true",
-        help="print every file that's removed to stdout",
+        help="print every file that's removed (and why) to stdout",
     )
 
     return parser
