@@ -1,11 +1,11 @@
-import sysconfig
-import os
+import base64
 import csv
 import hashlib
-import base64
-from typing import Optional
+import os
+import sysconfig
 from glob import iglob
 from pathlib import Path
+from typing import Dict, Optional, Union
 
 
 class Uninstaller(object):
@@ -18,7 +18,7 @@ class Uninstaller(object):
         self,
         root: Optional[str] = None,
         base: Optional[str] = None,
-        scheme: Optional[str] = None,
+        scheme: Optional[Union[str, Dict[str, str]]] = None,
         whl_scheme: str = "purelib",
     ):
         vars = {}
@@ -28,12 +28,15 @@ class Uninstaller(object):
         else:
             vars["base"] = vars["platbase"] = installed_base = base
 
-        if scheme is None:
-            install_scheme = sysconfig.get_default_scheme()
+        if isinstance(scheme, dict):
+            scheme_dict = scheme
         else:
-            install_scheme = scheme
+            if scheme is None:
+                install_scheme = sysconfig.get_default_scheme()
+            else:
+                install_scheme = scheme
 
-        scheme_dict = sysconfig.get_paths(scheme=install_scheme, vars=vars)
+            scheme_dict = sysconfig.get_paths(scheme=install_scheme, vars=vars)
 
         self.search_dir = scheme_dict[whl_scheme]
 
