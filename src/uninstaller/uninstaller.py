@@ -77,10 +77,11 @@ class Uninstaller(object):
 
                 installed_file = os.path.join(self.search_dir, path)
                 is_recordfile = installed_file == record_file
-                if not ignore_size and not is_recordfile:
+                if (not ignore_size) and (not is_recordfile) and (size != ""):
                     fstat = os.stat(installed_file)
-                    assert fstat.st_size == int(size)
-                if not ignore_csum and not is_recordfile:
+                    msg = f"The file has {fstat.st_size} bytes but RECORD thinks it should have {size}"
+                    assert fstat.st_size == int(size), msg
+                if (not ignore_csum) and (not is_recordfile) and (hash != ""):
                     with open(installed_file, "rb") as fh:
                         # TODO: only in 3.11
                         # digest = hashlib.file_digest(fh, hash_kind)
@@ -93,7 +94,8 @@ class Uninstaller(object):
                             hasher.update(buf)
                         digest = base64.urlsafe_b64encode(hasher.digest())
                         digest = digest.removesuffix(b"=")
-                        assert digest.decode() == hash_value
+                        msg = f"The file's hash is {digest.decode()} but RECORD thinks it should be {hash_value}"
+                        assert digest.decode() == hash_value, 
                 if ignore_size and ignore_csum:
                     assert os.path.isfile(installed_file)
                 to_removes.append(installed_file)
